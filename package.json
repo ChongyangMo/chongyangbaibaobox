@@ -4,8 +4,8 @@
   "description": "崇阳百宝箱官网",
   "private": true,
   "scripts": {
-    "deploy": "wrangler pages publish . --project-name=chongyang-website",
-    "deploy:direct": "wrangler pages deploy . --project-name=chongyang-website"
+    "deploy": "wrangler pages publish .",
+    "deploy:direct": "wrangler pages deploy ."
   },
   "devDependencies": {
     "wrangler": "^4.0.0"

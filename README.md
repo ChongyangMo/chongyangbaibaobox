@@ -6,7 +6,7 @@
 
 本项目已配置为可以直接部署到Cloudflare Pages。
 
-### 方法一：使用Cloudflare Pages UI部署（推荐）
+### 最佳方法：使用Cloudflare Pages UI直接上传（强烈推荐）
 
 1. 登录Cloudflare Dashboard
 2. 进入Pages > Create a project
@@ -14,37 +14,44 @@
 4. 拖放整个项目文件夹或选择文件
 5. 点击"Deploy site"
 
-### 方法二：使用Git仓库部署
+这种方法最简单，避免了构建过程中可能出现的问题。
+
+### 使用Git仓库部署
+
+如果您想通过Git仓库部署：
 
 1. 登录Cloudflare Dashboard
 2. 进入Pages > Create a project
 3. 选择"Connect to Git"（连接到Git仓库）
-   - 连接您的GitHub/GitLab账号
-   - 选择此仓库
-   - **构建设置**:
-     - 构建命令：留空
-     - 构建输出目录：`.`
-4. 点击"Save and Deploy"
+4. 连接您的GitHub/GitLab账号并选择此仓库
+5. **重要**: 在构建设置中：
+   - 构建命令：**留空**
+   - 构建输出目录：`.`（当前目录）
+6. 点击"Save and Deploy"
 
-### 方法三：使用命令行部署
+### 使用命令行部署
 
-如果您已安装并登录了Cloudflare Wrangler CLI：
+如果您已安装并登录了Cloudflare CLI：
 
 ```bash
 # 安装依赖
 npm install
 
-# 部署网站
+# 部署网站（推荐）
 npm run deploy:direct
+
+# 或者使用 publish 命令
+npm run deploy
 ```
 
-## 解决常见部署问题
+## 解决部署问题
 
-如果遇到"缺少入口点"错误，请尝试以下方法：
+如果遇到"缺少入口点"或其他部署错误：
 
-1. 确保使用最新版本的wrangler
-2. 使用直接上传方式而不是Git部署
-3. 在Cloudflare Pages UI中将构建命令留空
+1. **最简单的解决方案**: 使用UI直接上传方式部署
+2. 确保项目根目录包含 `_routes.json` 和 `_headers` 文件
+3. 确保 `wrangler.toml` 中的 `main` 字段指向正确的文件
+4. 在Cloudflare Pages UI中将构建命令留空
 
 ## 本地开发
 
@@ -62,6 +69,9 @@ npm run deploy:direct
 - `css/` - 样式文件
 - `js/` - JavaScript文件
 - `images/` - 图片资源
+- `workers/` - Cloudflare Workers 脚本
+- `_routes.json` - Cloudflare Pages 路由配置
+- `_headers` - HTTP 头信息配置
 
 ## 版权信息
 
