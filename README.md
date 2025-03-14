@@ -1,13 +1,71 @@
-# 崇阳百宝箱官方网站
+# 崇阳百宝箱官网
 
-这是崇阳百宝箱图片编辑应用的官方网站源代码。
+崇阳百宝箱是一款功能强大的图片编辑应用，集成了多种实用工具，让您的照片编辑体验更加流畅、高效。
 
-## 网站结构
+## 部署说明
+
+本项目已配置为可以直接部署到Cloudflare Pages。
+
+### 方法一：使用Cloudflare Pages UI部署（推荐）
+
+1. 登录Cloudflare Dashboard
+2. 进入Pages > Create a project
+3. 选择"Direct Upload"（直接上传）
+4. 拖放整个项目文件夹或选择文件
+5. 点击"Deploy site"
+
+### 方法二：使用Git仓库部署
+
+1. 登录Cloudflare Dashboard
+2. 进入Pages > Create a project
+3. 选择"Connect to Git"（连接到Git仓库）
+   - 连接您的GitHub/GitLab账号
+   - 选择此仓库
+   - **构建设置**:
+     - 构建命令：留空
+     - 构建输出目录：`.`
+4. 点击"Save and Deploy"
+
+### 方法三：使用命令行部署
+
+如果您已安装并登录了Cloudflare Wrangler CLI：
+
+```bash
+# 安装依赖
+npm install
+
+# 部署网站
+npm run deploy:direct
+```
+
+## 解决常见部署问题
+
+如果遇到"缺少入口点"错误，请尝试以下方法：
+
+1. 确保使用最新版本的wrangler
+2. 使用直接上传方式而不是Git部署
+3. 在Cloudflare Pages UI中将构建命令留空
+
+## 本地开发
+
+1. 克隆此仓库
+2. 使用任意HTTP服务器运行，例如：
+   ```
+   npx http-server
+   ```
+3. 在浏览器中访问 http://localhost:8080
+
+## 文件结构
 
 - `index.html` - 网站主页
-- `css/style.css` - 样式表文件
-- `js/main.js` - JavaScript交互脚本
-- `images/` - 图片资源目录
+- `privacy-policy.html` - 隐私政策页面
+- `css/` - 样式文件
+- `js/` - JavaScript文件
+- `images/` - 图片资源
+
+## 版权信息
+
+© 2025 崇阳百宝箱. 保留所有权利。版权所有 chongyang
 
 ## 功能特点
 
@@ -54,9 +112,5 @@
 
 如有任何问题或建议，请联系：
 
-- 邮箱：support@chongyang.com
-- 电话：400-123-4567
-
-## 许可证
-
-© 2023 崇阳百宝箱. 保留所有权利。 
+- 邮箱：xigua8hao@163.com
+- 电话：400-123-4567 

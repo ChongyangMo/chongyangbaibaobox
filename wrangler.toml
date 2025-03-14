@@ -1,5 +1,16 @@
 name = "chongyang-website"
 compatibility_date = "2023-12-01"
+main = ".cloudflare/workers/site.js"
 
 [site]
-bucket = "." 
+bucket = "."
+
+[build]
+command = ""
+upload.format = "directory"
+
+[env.production]
+workers_dev = false
+
+[triggers]
+crons = [] 
