@@ -1,0 +1,12 @@
+{
+  "name": "chongyang-website",
+  "version": "1.0.0",
+  "description": "崇阳百宝箱官网",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler pages deploy ."
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+} 
